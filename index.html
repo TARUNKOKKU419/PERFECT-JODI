@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JodiConnect - Find Your Perfect Life Partner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+
+```
+    <div class="logo">💍 JodiConnect</div>
+
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#register">Register</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <a href="#admin" class="register-btn">Admin Login</a>
+
+</nav>
+```
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+```
+<div class="hero-content">
+
+    <p class="welcome">WELCOME TO JODICONNECT</p>
+
+    <h1>
+        Find Your<br>
+        <span>Perfect Life Partner</span>
+    </h1>
+
+    <p class="hero-text">
+        Begin your journey towards a meaningful relationship.
+        Register your profile and let us help you find a suitable match.
+    </p>
+
+    <a href="#register" class="main-btn">
+        Register Your Profile
+    </a>
+
+</div>
+```
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+```
+<h2>About JodiConnect</h2>
+
+<p>
+    JodiConnect is a matrimonial platform designed to help
+    individuals and families find suitable life partners.
+    We collect profile information and help connect people
+    with compatible matches.
+</p>
+```
+
+</section>
+
+<!-- SERVICES -->
+
+<section class="services" id="services">
+
+```
+<h2>Why Choose JodiConnect?</h2>
+
+<div class="service-container">
+
+    <div class="service-card">
+
+        <div class="icon">📝</div>
+
+        <h3>Easy Registration</h3>
+
+        <p>
+            Register your matrimonial profile quickly
+            and easily through our online form.
+        </p>
+
+    </div>
+
+
+    <div class="service-card">
+
+        <div class="icon">🔍</div>
+
+        <h3>Find Suitable Matches</h3>
+
+        <p>
+            We help identify suitable profiles based
+            on your preferences.
+        </p>
+
+    </div>
+
+
+    <div class="service-card">
+
+        <div class="icon">🤝</div>
+
+        <h3>Personal Assistance</h3>
+
+        <p>
+            Our marriage bureau provides personal
+            assistance throughout the matchmaking process.
+        </p>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- REGISTRATION -->
+
+<section class="registration" id="register">
+
+```
+<h2>Register Your Profile</h2>
+
+<p class="section-text">
+    Enter your details below to register with JodiConnect.
+</p>
+
+
+<form id="registrationForm">
+
+
+    <div class="form-row">
+
+        <div class="form-group">
+
+            <label>Full Name</label>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your full name"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Gender</label>
+
+            <select id="gender" required>
+
+                <option value="">
+                    Select Gender
+                </option>
+
+                <option>Male</option>
+
+                <option>Female</option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <div class="form-row">
+
+        <div class="form-group">
+
+            <label>Age</label>
+
+            <input
+                type="number"
+                id="age"
+                placeholder="Enter your age"
+                min="18"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Caste</label>
+
+            <input
+                type="text"
+                id="caste"
+                placeholder="Enter your caste"
+                required
+            >
+
+        </div>
+
+    </div>
+
+
+    <div class="form-row">
+
+        <div class="form-group">
+
+            <label>Height</label>
+
+            <input
+                type="text"
+                id="height"
+                placeholder="Example: 5 ft 8 in"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Weight</label>
+
+            <input
+                type="text"
+                id="weight"
+                placeholder="Example: 65 kg"
+            >
+
+        </div>
+
+    </div>
+
+
+    <div class="form-row">
+
+        <div class="form-group">
+
+            <label>Father's Name</label>
+
+            <input
+                type="text"
+                id="fatherName"
+                placeholder="Enter father's name"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Mother's Name</label>
+
+            <input
+                type="text"
+                id="motherName"
+                placeholder="Enter mother's name"
+            >
+
+        </div>
+
+    </div>
+
+
+    <div class="form-row">
+
+        <div class="form-group">
+
+            <label>Phone Number</label>
+
+            <input
+                type="tel"
+                id="phone"
+                placeholder="Enter phone number"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter email address"
+            >
+
+        </div>
+
+    </div>
+
+
+    <div class="form-row">
+
+        <div class="form-group">
+
+            <label>Location</label>
+
+            <input
+                type="text"
+                id="location"
+                placeholder="City / District"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Education</label>
+
+            <input
+                type="text"
+                id="education"
+                placeholder="Your education"
+            >
+
+        </div>
+
+    </div>
+
+
+    <div class="form-group full">
+
+        <label>Occupation</label>
+
+        <input
+            type="text"
+            id="occupation"
+            placeholder="Your occupation"
+        >
+
+    </div>
+
+
+    <div class="form-group full">
+
+        <label>About You</label>
+
+        <textarea
+            id="aboutYou"
+            rows="5"
+            placeholder="Tell us something about yourself"
+        ></textarea>
+
+    </div>
+
+
+    <button
+        type="submit"
+        class="submit-btn"
+    >
+        Submit Registration
+    </button>
+
+</form>
+```
+
+</section>
+
+<!-- ADMIN LOGIN -->
+
+<section class="admin-section" id="admin">
+
+```
+<h2>🔐 Admin Login</h2>
+
+<p class="section-text">
+    Login to manage JodiConnect registrations.
+</p>
+
+
+<form
+    id="adminLoginForm"
+    class="admin-form"
+>
+
+    <div class="form-group">
+
+        <label>Username</label>
+
+        <input
+            type="text"
+            id="adminUsername"
+            placeholder="Enter admin username"
+            required
+        >
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>Password</label>
+
+        <input
+            type="password"
+            id="adminPassword"
+            placeholder="Enter admin password"
+            required
+        >
+
+    </div>
+
+
+    <button
+        type="submit"
+        class="submit-btn"
+    >
+        Login
+    </button>
+
+</form>
+```
+
+</section>
+
+<!-- DASHBOARD -->
+
+<section
+    class="dashboard"
+    id="dashboard"
+>
+
+```
+<div class="dashboard-header">
+
+    <div>
+
+        <h2>📊 Admin Dashboard</h2>
+
+        <p>
+            Manage registered JodiConnect profiles.
+        </p>
+
+    </div>
+
+
+    <button
+        id="logoutBtn"
+        class="logout-btn"
+    >
+        Logout
+    </button>
+
+</div>
+
+
+<div class="dashboard-card">
+
+    <h3>Total Registrations</h3>
+
+    <div id="totalRegistrations">
+        0
+    </div>
+
+</div>
+
+
+<div class="table-container">
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Name</th>
+
+                <th>Gender</th>
+
+                <th>Age</th>
+
+                <th>Caste</th>
+
+                <th>Height</th>
+
+                <th>Weight</th>
+
+                <th>Father's Name</th>
+
+                <th>Mother's Name</th>
+
+                <th>Phone</th>
+
+                <th>Email</th>
+
+                <th>Location</th>
+
+                <th>Education</th>
+
+                <th>Occupation</th>
+
+                <th>About</th>
+
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody id="registrationTable">
+
+        </tbody>
+
+    </table>
+
+</div>
+```
+
+</section>
+
+<!-- CONTACT -->
+
+<section
+    class="contact"
+    id="contact"
+>
+
+```
+<h2>Contact JodiConnect</h2>
+
+<p>
+    Have questions? Contact our marriage bureau
+    for more information.
+</p>
+
+
+<div class="contact-info">
+
+    <p>
+        📞 Phone: +91 9701564192
+    </p>
+
+    <p>
+        📧 Email: perfectjodi@gmail.com
+    </p>
+
+    <p>
+        📍 Location: Andhra Pradesh, India
+    </p>
+
+</div>
+```
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+```
+<h3>💍 JodiConnect</h3>
+
+<p>
+    Find Your Perfect Life Partner
+</p>
+
+<p class="copyright">
+    © 2026 JodiConnect. All Rights Reserved.
+</p>
+```
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
