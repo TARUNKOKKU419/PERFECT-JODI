@@ -1,8 +1,6 @@
-// PerfectJodi - Registration System
-
 const STORAGE_KEY = "perfectJodiRegistrations";
 
-// Load registrations
+// Get registrations
 function getRegistrations() {
     return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 }
@@ -12,29 +10,39 @@ function saveRegistrations(data) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 }
 
-// Registration Form
+
+// ===============================
+// REGISTRATION
+// ===============================
+
 const registrationForm = document.getElementById("registrationForm");
 
 if (registrationForm) {
     registrationForm.addEventListener("submit", function (event) {
+
         event.preventDefault();
 
         const registration = {
             id: Date.now(),
+
             fullName: document.getElementById("fullName").value,
             gender: document.getElementById("gender").value,
             age: document.getElementById("age").value,
             caste: document.getElementById("caste").value,
             height: document.getElementById("height").value,
             weight: document.getElementById("weight").value,
+
             fatherName: document.getElementById("fatherName").value,
             motherName: document.getElementById("motherName").value,
+
             phone: document.getElementById("phone").value,
             email: document.getElementById("email").value,
             location: document.getElementById("location").value,
+
             education: document.getElementById("education").value,
             occupation: document.getElementById("occupation").value,
             about: document.getElementById("about").value,
+
             date: new Date().toLocaleString()
         };
 
@@ -44,21 +52,26 @@ if (registrationForm) {
 
         saveRegistrations(registrations);
 
-        alert("Registration successful! Thank you for registering with PerfectJodi.");
+        alert("Registration submitted successfully! ❤️");
 
         registrationForm.reset();
     });
 }
 
 
-// Admin Login
+// ===============================
+// ADMIN LOGIN
+// ===============================
+
 const loginForm = document.getElementById("loginForm");
 
 if (loginForm) {
+
     loginForm.addEventListener("submit", function (event) {
+
         event.preventDefault();
 
-        const username = document.getElementById("username").value;
+        const username = document.getElementById("username").value.trim();
         const password = document.getElementById("password").value;
 
         if (username === "NAGABABU" && password === "NAGABABU@123") {
@@ -79,22 +92,27 @@ if (loginForm) {
             loadDashboard();
 
         } else {
+
             alert("Invalid username or password!");
+
         }
     });
 }
 
 
-// Load Dashboard
-function loadDashboard() {
+// ===============================
+// DASHBOARD
+// ===============================
 
-    const registrations = getRegistrations();
+function loadDashboard() {
 
     const tableBody = document.getElementById("registrationTableBody");
 
     if (!tableBody) {
         return;
     }
+
+    const registrations = getRegistrations();
 
     tableBody.innerHTML = "";
 
@@ -132,7 +150,7 @@ function loadDashboard() {
             <td>${person.occupation}</td>
             <td>${person.about}</td>
             <td>
-                <button class="delete-btn" onclick="deleteRegistration(${person.id})">
+                <button onclick="deleteRegistration(${person.id})">
                     Delete
                 </button>
             </td>
@@ -143,14 +161,13 @@ function loadDashboard() {
 }
 
 
-// Delete Registration
+// ===============================
+// DELETE
+// ===============================
+
 function deleteRegistration(id) {
 
-    const confirmDelete = confirm(
-        "Are you sure you want to delete this registration?"
-    );
-
-    if (!confirmDelete) {
+    if (!confirm("Are you sure you want to delete this registration?")) {
         return;
     }
 
@@ -163,12 +180,13 @@ function deleteRegistration(id) {
     saveRegistrations(registrations);
 
     loadDashboard();
-
-    alert("Registration deleted successfully.");
 }
 
 
-// Logout
+// ===============================
+// LOGOUT
+// ===============================
+
 function logout() {
 
     const dashboard = document.getElementById("dashboard");
@@ -181,18 +199,10 @@ function logout() {
     if (adminSection) {
         adminSection.style.display = "block";
     }
-
-    const loginForm = document.getElementById("loginForm");
-
-    if (loginForm) {
-        loginForm.reset();
-    }
-
-    window.location.hash = "admin";
 }
 
 
-// Make functions available to HTML buttons
+// Make functions available to HTML
 window.deleteRegistration = deleteRegistration;
 window.logout = logout;
 window.loadDashboard = loadDashboard;
