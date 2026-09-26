@@ -1,120 +1,234 @@
 const STORAGE_KEY = "perfectJodiRegistrations";
 
-// Get registrations
+
+// =========================================
+// GET REGISTRATIONS
+// =========================================
+
 function getRegistrations() {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+
+    return JSON.parse(
+        localStorage.getItem(STORAGE_KEY)
+    ) || [];
+
 }
 
-// Save registrations
+
+// =========================================
+// SAVE REGISTRATIONS
+// =========================================
+
 function saveRegistrations(data) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(data)
+    );
+
 }
 
 
-// ===============================
+// =========================================
 // REGISTRATION
-// ===============================
+// =========================================
 
-const registrationForm = document.getElementById("registrationForm");
+const registrationForm =
+    document.getElementById("registrationForm");
+
 
 if (registrationForm) {
-    registrationForm.addEventListener("submit", function (event) {
 
-        event.preventDefault();
+    registrationForm.addEventListener(
+        "submit",
+        function (event) {
 
-        const registration = {
-            id: Date.now(),
+            event.preventDefault();
 
-            fullName: document.getElementById("fullName").value,
-            gender: document.getElementById("gender").value,
-            age: document.getElementById("age").value,
-            caste: document.getElementById("caste").value,
-            height: document.getElementById("height").value,
-            weight: document.getElementById("weight").value,
 
-            fatherName: document.getElementById("fatherName").value,
-            motherName: document.getElementById("motherName").value,
+            const registration = {
 
-            phone: document.getElementById("phone").value,
-            email: document.getElementById("email").value,
-            location: document.getElementById("location").value,
+                id: Date.now(),
 
-            education: document.getElementById("education").value,
-            occupation: document.getElementById("occupation").value,
-            about: document.getElementById("about").value,
+                fullName:
+                    document.getElementById("fullName").value,
 
-            date: new Date().toLocaleString()
-        };
+                gender:
+                    document.getElementById("gender").value,
 
-        const registrations = getRegistrations();
+                age:
+                    document.getElementById("age").value,
 
-        registrations.push(registration);
+                caste:
+                    document.getElementById("caste").value,
 
-        saveRegistrations(registrations);
+                height:
+                    document.getElementById("height").value,
 
-        alert("Registration submitted successfully! ❤️");
+                weight:
+                    document.getElementById("weight").value,
 
-        registrationForm.reset();
-    });
+                fatherName:
+                    document.getElementById("fatherName").value,
+
+                motherName:
+                    document.getElementById("motherName").value,
+
+                phone:
+                    document.getElementById("phone").value,
+
+                email:
+                    document.getElementById("email").value,
+
+                location:
+                    document.getElementById("location").value,
+
+                education:
+                    document.getElementById("education").value,
+
+                occupation:
+                    document.getElementById("occupation").value,
+
+                about:
+                    document.getElementById("about").value,
+
+                date:
+                    new Date().toLocaleString()
+
+            };
+
+
+            const registrations =
+                getRegistrations();
+
+
+            registrations.push(registration);
+
+
+            saveRegistrations(
+                registrations
+            );
+
+
+            alert(
+                "Registration submitted successfully! ❤️"
+            );
+
+
+            registrationForm.reset();
+
+        }
+    );
+
 }
 
 
-// ===============================
+// =========================================
 // ADMIN LOGIN
-// ===============================
+// =========================================
 
-const loginForm = document.getElementById("loginForm");
+const loginForm =
+    document.getElementById("loginForm");
+
 
 if (loginForm) {
 
-    loginForm.addEventListener("submit", function (event) {
+    loginForm.addEventListener(
+        "submit",
+        function (event) {
 
-        event.preventDefault();
+            event.preventDefault();
 
-        const username = document.getElementById("username").value.trim();
-        const password = document.getElementById("password").value;
 
-        if (username === "NAGABABU" && password === "NAGABABU@123") {
+            const username =
+                document
+                    .getElementById("username")
+                    .value
+                    .trim();
 
-            alert("Login successful!");
 
-            const adminSection = document.getElementById("admin");
-            const dashboard = document.getElementById("dashboard");
+            const password =
+                document
+                    .getElementById("password")
+                    .value;
 
-            if (adminSection) {
-                adminSection.style.display = "none";
+
+            if (
+                username === "NAGABABU" &&
+                password === "NAGABABU@123"
+            ) {
+
+                alert(
+                    "Login successful!"
+                );
+
+
+                const adminSection =
+                    document.getElementById("admin");
+
+
+                const dashboard =
+                    document.getElementById("dashboard");
+
+
+                if (adminSection) {
+
+                    adminSection.style.display =
+                        "none";
+
+                }
+
+
+                if (dashboard) {
+
+                    dashboard.style.display =
+                        "block";
+
+                }
+
+
+                loadDashboard();
+
             }
 
-            if (dashboard) {
-                dashboard.style.display = "block";
+            else {
+
+                alert(
+                    "Invalid username or password!"
+                );
+
             }
-
-            loadDashboard();
-
-        } else {
-
-            alert("Invalid username or password!");
 
         }
-    });
+    );
+
 }
 
 
-// ===============================
+// =========================================
 // DASHBOARD
-// ===============================
+// =========================================
 
 function loadDashboard() {
 
-    const tableBody = document.getElementById("registrationTableBody");
+    const tableBody =
+        document.getElementById(
+            "registrationTableBody"
+        );
+
 
     if (!tableBody) {
+
         return;
+
     }
 
-    const registrations = getRegistrations();
+
+    const registrations =
+        getRegistrations();
+
 
     tableBody.innerHTML = "";
+
 
     if (registrations.length === 0) {
 
@@ -127,82 +241,154 @@ function loadDashboard() {
         `;
 
         return;
+
     }
 
-    registrations.forEach(function (person, index) {
 
-        const row = document.createElement("tr");
+    registrations.forEach(
+        function (person, index) {
 
-        row.innerHTML = `
-            <td>${index + 1}</td>
-            <td>${person.fullName}</td>
-            <td>${person.gender}</td>
-            <td>${person.age}</td>
-            <td>${person.caste}</td>
-            <td>${person.height}</td>
-            <td>${person.weight}</td>
-            <td>${person.fatherName}</td>
-            <td>${person.motherName}</td>
-            <td>${person.phone}</td>
-            <td>${person.email}</td>
-            <td>${person.location}</td>
-            <td>${person.education}</td>
-            <td>${person.occupation}</td>
-            <td>${person.about}</td>
-            <td>
-                <button onclick="deleteRegistration(${person.id})">
-                    Delete
-                </button>
-            </td>
-        `;
+            const row =
+                document.createElement("tr");
 
-        tableBody.appendChild(row);
-    });
+
+            row.innerHTML = `
+
+                <td>${index + 1}</td>
+
+                <td>${person.fullName}</td>
+
+                <td>${person.gender}</td>
+
+                <td>${person.age}</td>
+
+                <td>${person.caste}</td>
+
+                <td>${person.height}</td>
+
+                <td>${person.weight}</td>
+
+                <td>${person.fatherName}</td>
+
+                <td>${person.motherName}</td>
+
+                <td>${person.phone}</td>
+
+                <td>${person.email}</td>
+
+                <td>${person.location}</td>
+
+                <td>${person.education}</td>
+
+                <td>${person.occupation}</td>
+
+                <td>${person.about}</td>
+
+                <td>
+                    <button
+                        onclick="deleteRegistration(${person.id})"
+                    >
+                        Delete
+                    </button>
+                </td>
+
+            `;
+
+
+            tableBody.appendChild(row);
+
+        }
+    );
+
 }
 
 
-// ===============================
-// DELETE
-// ===============================
+// =========================================
+// DELETE REGISTRATION
+// =========================================
 
 function deleteRegistration(id) {
 
-    if (!confirm("Are you sure you want to delete this registration?")) {
+    if (
+        !confirm(
+            "Are you sure you want to delete this registration?"
+        )
+    ) {
+
         return;
+
     }
 
-    let registrations = getRegistrations();
 
-    registrations = registrations.filter(function (person) {
-        return person.id !== id;
-    });
+    let registrations =
+        getRegistrations();
 
-    saveRegistrations(registrations);
+
+    registrations =
+        registrations.filter(
+            function (person) {
+
+                return person.id !== id;
+
+            }
+        );
+
+
+    saveRegistrations(
+        registrations
+    );
+
 
     loadDashboard();
+
 }
 
 
-// ===============================
+// =========================================
 // LOGOUT
-// ===============================
+// =========================================
 
 function logout() {
 
-    const dashboard = document.getElementById("dashboard");
-    const adminSection = document.getElementById("admin");
+    const dashboard =
+        document.getElementById(
+            "dashboard"
+        );
+
+
+    const adminSection =
+        document.getElementById(
+            "admin"
+        );
+
 
     if (dashboard) {
-        dashboard.style.display = "none";
+
+        dashboard.style.display =
+            "none";
+
     }
 
+
     if (adminSection) {
-        adminSection.style.display = "block";
+
+        adminSection.style.display =
+            "block";
+
     }
+
 }
 
 
-// Make functions available to HTML
-window.deleteRegistration = deleteRegistration;
-window.logout = logout;
-window.loadDashboard = loadDashboard;
+// =========================================
+// MAKE FUNCTIONS AVAILABLE
+// =========================================
+
+window.deleteRegistration =
+    deleteRegistration;
+
+window.logout =
+    logout;
+
+window.loadDashboard =
+    loadDashboard;
